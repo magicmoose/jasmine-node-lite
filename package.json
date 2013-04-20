@@ -35,6 +35,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "underscore": "~1.4.4"
+    "underscore": "~1.4.4",
+    "coffee-script": "~1.6.2"
   }
 }
