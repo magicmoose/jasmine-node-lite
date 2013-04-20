@@ -7,9 +7,15 @@
 'use strict';
 
 var jasminerunner = require('../lib/jasminerunner');
-
+var consolereporter = require('../lib/reporter/consolereporter');
 function onDone () {
     console.log('done!');
 }
+var options = {
+    genericReporter: jasminerunner.GenericJasmineReporter
+};
+
+var reporter = new consolereporter.ConsoleReporter(options);
+
 jasminerunner.executeSpecs(['./spec/sample.spec.js',
     './spec/literatecoffee.spec.litcoffee'],onDone,true, true);
