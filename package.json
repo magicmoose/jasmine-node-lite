@@ -17,7 +17,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/magicmoose/jasmine-node-light/blob/master/LICENSE-MIT"
+      "url": "https://github.com/magicmoose/jasmine-node-light/blob/master/LICENSE.md"
     }
   ],
   "main": "lib/jasmine-node-light",
@@ -28,7 +28,7 @@
     "test": "node bin/test.js"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-jshint": "~0.4.0",
     "grunt-contrib-nodeunit": "~0.1.2",
     "grunt-contrib-watch": "~0.2.0",
     "grunt": "~0.4.1"
@@ -37,6 +37,7 @@
   "dependencies": {
     "underscore": "~1.4.4",
     "coffee-script": "~1.6.2",
-    "jasmine-reporters": "~0.2.1"
+    "jasmine-reporters": "~0.2.1",
+    "eventemitter2": "~0.4.11"
   }
 }
