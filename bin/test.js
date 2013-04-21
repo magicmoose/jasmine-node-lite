@@ -12,7 +12,8 @@ function onDone () {
     console.log('done!');
 }
 var options = {
-    genericReporter: jasminerunner.GenericJasmineReporter
+    genericReporter: jasminerunner.GenericJasmineReporter,
+    includeStackTrace: false
 };
 
 var reporter = new consolereporter.ConsoleReporter(options);
