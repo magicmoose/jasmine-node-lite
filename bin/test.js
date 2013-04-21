@@ -18,4 +18,4 @@ var options = {
 var reporter = new consolereporter.ConsoleReporter(options);
 
 jasminerunner.executeSpecs(['./spec/sample.spec.js',
-    './spec/literatecoffee.spec.litcoffee'],onDone,true, true);
+    './spec/literatecoffee.spec.litcoffee'],onDone);
