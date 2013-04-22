@@ -13,11 +13,10 @@ module.exports = (grunt) ->
         # -------
         pkg: pkg
 
-        jshint:
+        jshint:     
+            lib: ['lib/**/*.js']
             options: 
                 jshintrc: '.jshintrc'
-            lib:
-                src: ['lib/**/*.js']
 
         watch:
             lib:
