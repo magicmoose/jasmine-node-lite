@@ -1,26 +1,26 @@
 {
-  "name": "jasmine-node-light",
+  "name": "jasmine-node-lite",
   "description": "a lightweight jasmine node runner",
   "version": "0.0.1",
-  "homepage": "https://github.com/magicmoose/jasmine-node-light",
+  "homepage": "https://github.com/magicmoose/jasmine-node-lite",
   "author": {
-    "name": "magicmoose",
-    "email": "magicmoose@scardiecat.org"
+    "name": "Ralf Mueller",
+    "email": "coder@geomagic.org"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/magicmoose/jasmine-node-light.git"
+    "url": "git://github.com/magicmoose/jasmine-node-lite.git"
   },
   "bugs": {
-    "url": "https://github.com/magicmoose/jasmine-node-light/issues"
+    "url": "https://github.com/magicmoose/jasmine-node-lite/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/magicmoose/jasmine-node-light/blob/master/LICENSE.md"
+      "url": "https://github.com/magicmoose/jasmine-node-lite/blob/master/LICENSE.md"
     }
   ],
-  "main": "lib/jasmine-node-light",
+  "main": "lib/index.js",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -29,15 +29,15 @@
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.4.0",
-    "grunt-contrib-nodeunit": "~0.1.2",
     "grunt-contrib-watch": "~0.2.0",
     "grunt": "~0.4.1"
   },
-  "keywords": [],
   "dependencies": {
     "underscore": "~1.4.4",
     "coffee-script": "~1.6.2",
-    "jasmine-reporters": "~0.2.1",
     "eventemitter2": "~0.4.11"
-  }
+  },
+    "keywords": [
+    "jasmine",
+    "unittest"]
 }

@@ -1,13 +1,12 @@
-# jasmine-node-light [![Build Status](https://secure.travis-ci.org/magicmoose/jasmine-node-light.png?branch=master)](http://travis-ci.org/magicmoose/jasmine-node-light)
+# jasmine-node-lite [![Build Status](https://secure.travis-ci.org/magicmoose/jasmine-node-lite.png?branch=master)](http://travis-ci.org/magicmoose/jasmine-node-lite)
 
-a lightwight jasmine node runner
+a litewight jasmine node runner
 
 ## Getting Started
-Install the module with: `npm install jasmine-node-light`
+Install the module with: `npm install jasmine-node-lite`
 
 ```javascript
-var jasmine_node_light = require('jasmine-node-light');
-jasmine_node_light.awesome(); // "awesome"
+var jasmine_node_lite = require('jasmine-node-lite');
 ```
 
 ## Documentation
@@ -17,11 +16,11 @@ _(Coming soon)_
 _(Coming soon)_
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+_(Nothing yet)_
 
 ## Release History
 _(Nothing yet)_
 
 ## License
-Copyright (c) 2013 magicmoose  
+Copyright (c) 2013 Ralf Mueller
 Licensed under the MIT license.
