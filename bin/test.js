@@ -8,15 +8,16 @@
 
 var jasminerunner = require('../lib/jasminerunner');
 var consolereporter = require('../lib/reporter/consolereporter');
-function onDone () {
+function onComplete () {
     console.log('done!');
 }
 var options = {
-    genericReporter: jasminerunner.GenericJasmineReporter,
-    includeStackTrace: false
+    stackTrace: false,
+    onComplete: onComplete
 };
 
 var reporter = new consolereporter.ConsoleReporter(options);
+jasminerunner.registerReporter(reporter);
 
 jasminerunner.executeSpecs(['./spec/sample.spec.js',
-    './spec/literatecoffee.spec.litcoffee'],onDone);
+    './spec/literatecoffee.spec.litcoffee']);
