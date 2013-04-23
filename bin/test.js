@@ -12,11 +12,11 @@ function onDone () {
     console.log('done!');
 }
 var options = {
-    genericReporter: jasminerunner.GenericJasmineReporter,
-    includeStackTrace: false
+    stackTrace: false
 };
 
 var reporter = new consolereporter.ConsoleReporter(options);
+jasminerunner.registerReporter(reporter);
 
 jasminerunner.executeSpecs(['./spec/sample.spec.js',
     './spec/literatecoffee.spec.litcoffee'],onDone);
