@@ -30,14 +30,16 @@
   "devDependencies": {
     "grunt-contrib-jshint": "~0.4.0",
     "grunt-contrib-watch": "~0.2.0",
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "~0.2.0"
   },
   "dependencies": {
     "underscore": "~1.4.4",
     "coffee-script": "~1.6.2",
     "eventemitter2": "~0.4.11"
   },
-    "keywords": [
+  "keywords": [
     "jasmine",
-    "unittest"]
+    "unittest"
+  ]
 }

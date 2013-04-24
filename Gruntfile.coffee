@@ -23,12 +23,20 @@ module.exports = (grunt) ->
                 files: '<%= jshint.lib.src %>'
                 tasks: ['jshint:lib']
 
-    
+        concat:
+            options: 
+                stripBanners: true
+                banner: '/*! <%= pkg.name %> - v<%= pkg.version %> */'
+            readme:
+                src: ['doc/readmeheader.md','doc/example1.litCoffee','doc/readmefooter.md'],
+                dest: 'README.md'
 
     # Modules
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat')
 
     #Tasks
     grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('makerelease',['concat'])
 

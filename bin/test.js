@@ -5,9 +5,7 @@
  */
 
 'use strict';
-
-var jasminerunner = require('../lib/jasminerunner');
-var consolereporter = require('../lib/reporter/consolereporter');
+var jasmineNodeLite = require('../lib/index');
 function onComplete () {
     console.log('done!');
 }
@@ -16,8 +14,8 @@ var options = {
     onComplete: onComplete
 };
 
-var reporter = new consolereporter.ConsoleReporter(options);
-jasminerunner.registerReporter(reporter);
+var reporter = new jasmineNodeLite.ConsoleReporter(options);
+jasmineNodeLite.registerReporter(reporter);
 
-jasminerunner.executeSpecs(['./spec/sample.spec.js',
+jasmineNodeLite.executeSpecs(['./spec/sample.spec.js',
     './spec/literatecoffee.spec.litcoffee']);
