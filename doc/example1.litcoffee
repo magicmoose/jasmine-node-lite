@@ -8,6 +8,13 @@ Run it with
 coffee doc/example1.litcoffee 
 ```
 
+We can define the jasmine version to use but this is totally optional. 
+If we want to we have to initialize the jasmineoptions module like this:
+
+    jasmineOpt = {
+        jasminePath: '../vendor/jasmine/jasmine-2.0.0-alpha'
+    }
+    require('../lib/jasmineoptions')(jasmineOpt);
 
 Real Projects would require('jasmine-node-lite')
 
@@ -15,20 +22,25 @@ Real Projects would require('jasmine-node-lite')
 
 This funtion is called after the reporter finished 
 
-    onComplete = () ->
-        console.log('done!')
+    onConsoleReporterDone = () ->
+        console.log('ConsoleReporter done!')
 
 
-Define the options for the Console reporter 
+Define the options for the Console reporter and jasmine-node-lite
 
-     options = {
-        stackTrace: false,
-        onComplete: onComplete
+    options = {
+        consoleReporterOptions: {
+            stackTrace: false,
+            onComplete: onConsoleReporterDone
+        },
+        jasmineNodeLiteOptions:{
+            specs: ['./spec/sample.spec.js','./spec/literatecoffee.spec.litcoffee']
+        }
     }
 
 Create a Console reporter with the options
 
-    reporter = new jasmineNodeLite.ConsoleReporter(options)
+    reporter = new jasmineNodeLite.ConsoleReporter(options.consoleReporterOptions)
 
 Register the reporter with jasmineNodeLite
 
@@ -36,5 +48,4 @@ Register the reporter with jasmineNodeLite
 
 Execute an array of spec files
 
-    jasmineNodeLite.executeSpecs(['./spec/sample.spec.js',
-        './spec/literatecoffee.spec.litcoffee'])
+    jasmineNodeLite.executeSpecs(options.jasmineNodeLiteOptions)

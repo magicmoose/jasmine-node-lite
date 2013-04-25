@@ -5,17 +5,24 @@
  */
 
 'use strict';
+
 var jasmineNodeLite = require('../lib/index');
-function onComplete () {
-    console.log('done!');
+
+function onConsoleReporterDone() {
+    console.log('ConsoleReporter done!');
 }
+
 var options = {
-    stackTrace: false,
-    onComplete: onComplete
+    consoleReporterOptions: {
+        stackTrace: false,
+        onComplete: onConsoleReporterDone
+    },
+    jasmineNodeLiteOptions:{
+        specs: ['./spec/sample.spec.js','./spec/literatecoffee.spec.litcoffee']
+    }
 };
 
-var reporter = new jasmineNodeLite.ConsoleReporter(options);
+var reporter = new jasmineNodeLite.ConsoleReporter(options.consoleReporterOptions);
 jasmineNodeLite.registerReporter(reporter);
 
-jasmineNodeLite.executeSpecs(['./spec/sample.spec.js',
-    './spec/literatecoffee.spec.litcoffee']);
+jasmineNodeLite.executeSpecs(options.jasmineNodeLiteOptions);
