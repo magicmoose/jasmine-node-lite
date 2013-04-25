@@ -1,4 +1,4 @@
-/*! jasmine-node-lite - v0.0.1 */
+/*! jasmine-node-lite - v0.0.2 */
 # jasmine-node-lite [![Build Status](https://secure.travis-ci.org/magicmoose/jasmine-node-lite.png?branch=master)](http://travis-ci.org/magicmoose/jasmine-node-lite)
 ===================
 
@@ -23,6 +23,13 @@ Run it with
 coffee doc/example1.litcoffee 
 ```
 
+We can define the jasmine version to use but this is totally optional. 
+If we want to we:
+
+    jasmineOpt = {
+        jasminePath: '../lib/vendor/jasmine/jasmine-2.0.0-alpha'
+    }
+    require('../lib/jasmineoptions')(jasmineOpt);
 
 Real Projects would require('jasmine-node-lite')
 
