@@ -1,7 +1,7 @@
 {
   "name": "jasmine-node-lite",
   "description": "a lightweight jasmine node runner",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/magicmoose/jasmine-node-lite",
   "author": {
     "name": "Ralf Mueller",
