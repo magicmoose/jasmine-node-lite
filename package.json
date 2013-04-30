@@ -34,9 +34,9 @@
     "grunt-contrib-concat": "~0.2.0"
   },
   "dependencies": {
-    "underscore": "~1.4.4",
     "coffee-script": "~1.6.2",
-    "eventemitter2": "~0.4.11"
+    "eventemitter2": "~0.4.11",
+    "lodash": "~1.2.0"
   },
   "keywords": [
     "jasmine",

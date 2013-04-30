@@ -18,11 +18,19 @@ var options = {
         onComplete: onConsoleReporterDone
     },
     jasmineNodeLiteOptions:{
-        specs: ['./spec/sample.spec.js','./spec/literatecoffee.spec.litcoffee']
+        specs: ['./spec/samplec.spec.js', './spec/samplea.spec.js','./spec/sampleb.spec.js']
     }
 };
 
 var reporter = new jasmineNodeLite.ConsoleReporter(options.consoleReporterOptions);
 jasmineNodeLite.registerReporter(reporter);
 
+jasmineNodeLite.executeSpecs(options.jasmineNodeLiteOptions);
+
+jasmineNodeLite.unregisterReporter(reporter);
+
+var reporter = new jasmineNodeLite.ConsoleReporter(options.consoleReporterOptions);
+jasmineNodeLite.registerReporter(reporter);
+
+options.jasmineNodeLiteOptions.specs = ['./spec/literatecoffee.spec.litcoffee'];
 jasmineNodeLite.executeSpecs(options.jasmineNodeLiteOptions);
