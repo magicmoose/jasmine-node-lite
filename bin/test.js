@@ -21,16 +21,11 @@ var options = {
         specs: ['./spec/samplec.spec.js', './spec/samplea.spec.js','./spec/sampleb.spec.js']
     }
 };
-
+console.log('Using Jasmine:' + jasmineNodeLite.jasmineVersion);
 var reporter = new jasmineNodeLite.ConsoleReporter(options.consoleReporterOptions);
 jasmineNodeLite.registerReporter(reporter);
 
 jasmineNodeLite.executeSpecs(options.jasmineNodeLiteOptions);
-
-jasmineNodeLite.unregisterReporter(reporter);
-
-var reporter = new jasmineNodeLite.ConsoleReporter(options.consoleReporterOptions);
-jasmineNodeLite.registerReporter(reporter);
 
 options.jasmineNodeLiteOptions.specs = ['./spec/literatecoffee.spec.litcoffee'];
 jasmineNodeLite.executeSpecs(options.jasmineNodeLiteOptions);

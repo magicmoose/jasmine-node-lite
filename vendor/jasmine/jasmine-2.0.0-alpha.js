@@ -528,14 +528,6 @@ jasmine.Spec.isPendingSpecException = function(e) {
       });
       this.topSuite.execute(this.reporter.jasmineDone);
     };
-
-    this.unloadSuites = function () {
-      this.topSuite.children_ = [];
-      this.nextSuiteId_ = 0;
-      this.nextSpecId_ = 0;
-      totalSpecsDefined= 0;
-      this.suites = [];
-    }
   };
 
   //TODO: shim Spec addMatchers behavior into Env. Should be rewritten to remove globals, etc.
@@ -1735,4 +1727,4 @@ jasmine.Suite.prototype.execute = function(onComplete) {
   }
 };
 
-jasmine.version = "2.0.0-alpha";
+jasmine.version = "2.0.0-alpha-jasminenodelite";
