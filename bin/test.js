@@ -18,7 +18,7 @@ var options = {
         onComplete: onConsoleReporterDone
     },
     jasmineNodeLiteOptions:{
-        specs: ['./spec/samplec.spec.js', './spec/samplea.spec.js','./spec/sampleb.spec.js']
+        specs: ['./spec/samplec.spec.js', './spec/samplea.spec.js', './spec/sampleb.spec.js']
     }
 };
 console.log('Using Jasmine:' + jasmineNodeLite.jasmineVersion);
