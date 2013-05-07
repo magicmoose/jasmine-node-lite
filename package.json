@@ -36,7 +36,9 @@
   "dependencies": {
     "coffee-script": "~1.6.2",
     "eventemitter2": "~0.4.11",
-    "lodash": "~1.2.0"
+    "lodash": "~1.2.0",
+    "cli": "~0.4.4-2",
+    "glob": "~3.2.1"
   },
   "keywords": [
     "jasmine",
