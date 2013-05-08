@@ -39,19 +39,18 @@ Tests for the uncolored version
             afterEach () ->
                 consoleReporter.OnUnregister(reportDispatcher)
                 return
-                #delete require.cache[require.resolve('../../codec1')]
                 
             
-            it 'suite started prints the description of the suite', ->
+            it 'suite started prints the suite description', ->
                 reportDispatcher.suiteStarted({description:'suiteDescription'})
                 expect(output).toEqual(['suiteDescription'])
 
-            it 'spec finished prints the description spec', ->
+            it 'spec finished prints the spec description', ->
                 reportDispatcher.specDone({description:'specDescription'
                     , status:'passed'})
                 expect(output).toEqual(['specDescription'])
 
-            it 'spec finished prints failure and the description of the spec on failed spec', ->
+            it 'spec finished prints failure andspec description on failed spec', ->
                 reportDispatcher.specDone({description:'specDescription'
                     , status:'failed'})
                 expect(output).toEqual(['[failure] specDescription'])
@@ -124,7 +123,6 @@ NonVerbose uses print instread of println for its output
             afterEach () ->
                 consoleReporter.OnUnregister(reportDispatcher)
                 return
-                #delete require.cache[require.resolve('../../codec1')]
                 
             
             it 'spec finished prints . for success', ->
@@ -141,4 +139,123 @@ NonVerbose uses print instread of println for its output
                 reportDispatcher.specDone({description:'specDescription'
                     , status:'pending'})
                 expect(output).toEqual(['*'])
+
+Tests for the colored version
+
+        describe 'Colored', ->
+
+            reportDispatcher = new require('../../reportdispatcher').ReportDispatcher()
+
+            consoleReporter = {}
+            out = {}
+            output = []
+
+
+            beforeEach () ->
+                output = []
+                out =
+                    println: (str) ->
+                        output.push(str);
+                        return
+                    print: (str) ->
+                         #should not be called by reporter
+                        return
+
+                consoleReporterOptions =
+                    out: out,
+                    color: true,
+                    verbose: true,
+                    onDone: ()->,
+                    stackTrace: true
+
+                consoleReporter = new require('../../consolereporter').ConsoleReporter(consoleReporterOptions)
+                consoleReporter.OnRegister(reportDispatcher)
+                return
+
+            afterEach () ->
+                consoleReporter.OnUnregister(reportDispatcher)
+                return
+
+            it 'suite started prints suite description in color', ->
+                reportDispatcher.suiteStarted({description:'suiteDescription'})
+                expect(output).toEqual(['\u001b[34msuiteDescription\u001b[0m'])
+
+            it 'spec finished prints spec description in color', ->
+                reportDispatcher.specDone({description:'specDescription'
+                    , status:'passed'})
+                expect(output).toEqual(['\u001b[32mspecDescription\u001b[0m'])
+
+            it 'spec finished prints spec description on failed spec in color', ->
+                reportDispatcher.specDone({description:'specDescription'
+                    , status:'failed'})
+                expect(output).toEqual(['\u001b[31mspecDescription\u001b[0m'])
+
+            it 'spec finished prints spec description on pending spec in color', ->
+                reportDispatcher.specDone({description:'specDescription'
+                    , status:'pending'})
+                expect(output).toEqual(['\u001b[33mspecDescription\u001b[0m'])
+
+And being able to recolor the output
+
+        describe 'Colored redefined', ->
+
+            reportDispatcher = new require('../../reportdispatcher').ReportDispatcher()
+
+            consoleReporter = {}
+            out = {}
+            output = []
+
+
+            beforeEach () ->
+                output = []
+                out =
+                    println: (str) ->
+                        output.push(str);
+                        return
+                    print: (str) ->
+                         #should not be called by reporter
+                        return
+                reporter = require('../../consolereporter');
+                consoleReporterOptions =
+                    out: out,
+                    color: true,
+                    colorDefinition: {
+                        ok: new reporter.OutputFormat('[green]'), 
+                        error: new reporter.OutputFormat('[red]', '[failure] '), 
+                        warning: new reporter.OutputFormat('[yellow]', '[warning] '), 
+                        info: new reporter.OutputFormat('[blue]'), 
+                        none: new reporter.OutputFormat('[none]') 
+                    },
+                    verbose: true,
+                    onDone: ()->,
+                    stackTrace: true
+
+                consoleReporter = new reporter.ConsoleReporter(consoleReporterOptions)
+                consoleReporter.OnRegister(reportDispatcher)
+                return
+
+            afterEach () ->
+                consoleReporter.OnUnregister(reportDispatcher)
+                return
+
+            it 'suite started prints suite description in custom color', ->
+                reportDispatcher.suiteStarted({description:'suiteDescription'})
+                expect(output).toEqual(['[blue]suiteDescription[none]'])
+
+            it 'spec finished prints spec description in custom color', ->
+                reportDispatcher.specDone({description:'specDescription'
+                    , status:'passed'})
+                expect(output).toEqual(['[green]specDescription[none]'])
+
+            it 'spec finished prints spec description on failed spec in custom color', ->
+                reportDispatcher.specDone({description:'specDescription'
+                    , status:'failed'})
+                expect(output).toEqual(['[red]specDescription[none]'])
+
+            it 'spec finished prints spec description on pending spec in custom color', ->
+                reportDispatcher.specDone({description:'specDescription'
+                    , status:'pending'})
+                expect(output).toEqual(['[yellow]specDescription[none]'])
+                
+            
 
