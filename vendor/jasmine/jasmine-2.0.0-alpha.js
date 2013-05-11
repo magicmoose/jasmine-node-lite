@@ -1727,4 +1727,4 @@ jasmine.Suite.prototype.execute = function(onComplete) {
   }
 };
 
-jasmine.version = "2.0.0-alpha";
+jasmine.version = "2.0.0-alpha-jasminenodelite";
