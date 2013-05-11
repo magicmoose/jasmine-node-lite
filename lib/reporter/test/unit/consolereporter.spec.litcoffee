@@ -1,8 +1,9 @@
-Console Reporter    
-====================
+# Console Reporter
+------------------    
+
 
 Console Reporters are registered with a report Dispatcher which is the component
-which interacts with jasmine    
+which interacts with jasmine
 
     describe 'ConsoleReporter', ->
 
