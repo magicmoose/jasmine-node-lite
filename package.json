@@ -25,19 +25,23 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "node bin/test.js"
+    "test": "bin/jasmine-node-lite -uc"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.4.0",
     "grunt": "~0.4.1",
-    "grunt-contrib-concat": "~0.2.0"
+    "grunt-contrib-concat": "~0.2.0",
+    "proxyquire": "~0.4.1",
+    "sinon": "~1.7.2"
   },
   "dependencies": {
     "coffee-script": "~1.6.2",
     "eventemitter2": "~0.4.11",
     "lodash": "~1.2.0",
-    "cli": "~0.4.4-2",
-    "glob": "~3.2.1"
+    "glob": "~3.2.1",
+    "xml": "0.0.7",
+    "mkdirp": "~0.3.5",
+    "commander": "~1.1.1"
   },
   "keywords": [
     "jasmine",
